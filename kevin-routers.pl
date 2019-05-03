@@ -101,7 +101,9 @@ sub parse_rancid() {
 }
 
 sub out_yaml () {
-    open OUT, ">kevin.yml"
+    my $qual = '';
+    $qual .= '-wirl' if $disclose_icmp_rate_limits;
+    open OUT, ">kevin$qual.yml"
 	or die "Cannot create kevin.yml: $!";
     print OUT "---\n";
     foreach my $name (sort keys %routers) {
